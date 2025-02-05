@@ -4,14 +4,13 @@ import React, { useState } from "react";
 import { usePosts } from "@/context/PostsContext";
 import PostList from "@/components/PostList";
 import SearchBar from "@/components/SearchBar";
-import { TagKey } from "@/utils/constants";
+import { TAGS, TagKey } from "@/utils/constants";
 
 export default function Home() {
   const { posts, sortOrder, handleSearch, handleSort } = usePosts();
   const [selectedTags, setSelectedTags] = useState<TagKey[]>([]);
   const [isFilterDropdownVisible, setIsFilterDropdownVisible] =
     useState<boolean>(false);
-
   const [search, setSearch] = useState<string>("");
 
   const handleFilter = (tag: TagKey) => {
@@ -54,6 +53,9 @@ export default function Home() {
         handleRemoveTag={handleRemoveTag}
       />
       <PostList posts={getFilteredData()} />
+      <a href="/favorites" className="mt-4 block text-blue-500">
+        View Favorites
+      </a>
     </div>
   );
 }
