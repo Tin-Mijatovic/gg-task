@@ -12,6 +12,7 @@ export default function Home() {
   const [isFilterDropdownVisible, setIsFilterDropdownVisible] =
     useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
+  const { favoritePosts, toggleFavorite } = usePosts();
 
   const handleFilter = (tag: TagKey) => {
     setSelectedTags([...selectedTags, tag]);
