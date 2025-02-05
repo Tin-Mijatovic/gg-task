@@ -3,7 +3,7 @@ import { PostType } from "@/lib/types";
 import Home from "@/components/Home";
 import { PostsProvider } from "@/context/PostsContext";
 
-export default async function Page() {
+const Page = async () => {
   const initialPosts: PostType[] = await fetchPosts();
 
   return (
@@ -11,4 +11,6 @@ export default async function Page() {
       <Home />
     </PostsProvider>
   );
-}
+};
+
+export default Page;
